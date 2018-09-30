@@ -1,0 +1,8 @@
+<form action = "/administrator/AdminLoginProcess/" method = "POST">
+	{% csrf_token %}
+	Admin : <input type = "text" id = "user_name" name = "user_name">
+	<br/>
+	Password : <input type = "password" id = "password" name = "password">
+	<br/>
+	<input type = "submit" value = "Submit" name = "Submit">
+</form>

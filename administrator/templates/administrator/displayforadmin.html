@@ -1,0 +1,33 @@
+{% load static from staticfiles %}
+<h1>  Event Display</h1>
+<br/>
+{% for post in posts %}
+	<h4> Title: </h4> {{post.event_title}};
+	<br/>
+	<h4> Date and time: </h4> {{post.event_date}}
+	<br/>
+	<h4> Location: </h4> {{post.event_location}}
+	<br/>
+		<image src = "/static/{{post.url_media}}/" width = '40%' height = '40%'/> //
+	<h4> Description: </h4>
+	<br/>
+	<div>
+		{{post.event_description}}
+	</div>
+{% endfor %}
+
+<div class = "pagination">
+	<span class = "steps-link">
+		{% if posts.has_previous %}
+			<a hfref = "?page = {{posts.previous_page_number}}"> previous </a>
+		{% endif %}
+	
+		<span class = "current">
+			Page {{posts.number}} of {{posts.paginator.num_pages}}.	
+		</span>
+		 {% if posts.has_next %}
+	            <a href="?page={{ posts.next_page_number }}">next</a>
+               	 {% endif %}
+	</span>
+	
+</div>
